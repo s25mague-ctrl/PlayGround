@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover" />
+  <meta name="theme-color" content="#071b17" />
+  <title>ONE MORE — 1v1 Street Soccer</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <main class="game-shell" id="gameShell">
+    <canvas id="game" aria-label="One More soccer match"></canvas>
+    <div class="vignette"></div>
+    <header class="topbar">
+      <a class="brand" href="#" aria-label="One More home"><span class="brand-mark">◉</span><span>ONE<span class="brand-light">MORE</span></span></a>
+      <div class="match-pill"><span class="live-dot"></span><span id="matchStatus">KICK OFF</span></div>
+      <button class="icon-btn" id="soundBtn" aria-label="Toggle sound">♫</button>
+    </header>
+    <section class="scoreboard" aria-label="Scoreboard">
+      <div class="team-name away"><span class="team-dot orange"></span><span>RIVALS</span></div>
+      <div class="score"><span id="botScore">0</span><i>:</i><span id="playerScore">0</span></div>
+      <div class="team-name home"><span>YOU</span><span class="team-dot blue"></span></div>
+      <div class="timer" id="timer">01:30</div>
+    </section>
+    <div class="goal-label goal-top"><span>RIVALS' GOAL</span></div>
+    <div class="goal-label goal-bottom"><span>YOUR GOAL</span></div>
+    <div class="toast" id="toast" aria-live="polite"></div>
+    <div class="control-hint" id="controlHint"><span class="hint-key">W A S D</span><span>MOVE</span><b>·</b><span class="hint-key">SPACE</span><span>SHOOT</span><b>·</b><span class="hint-key">SHIFT</span><span>CURVE</span></div>
+    <div class="touch-controls" id="touchControls">
+      <div class="stick-zone" id="stickZone"><div class="stick-ring"><div class="stick-knob" id="stickKnob"></div></div><span class="stick-caption">MOVE</span></div>
+      <div class="action-cluster">
+        <button class="action-btn dash-btn" id="dashBtn"><span class="action-icon">↯</span><small>BURST</small></button>
+        <button class="action-btn curve-btn" id="curveBtn"><span class="action-icon">↝</span><small>CURVE</small></button>
+        <button class="action-btn shoot-btn" id="shootBtn"><span class="action-icon">➤</span><small>SHOOT</small></button>
+      </div>
+    </div>
+    <section class="modal" id="startModal">
+      <div class="modal-card intro-card">
+        <div class="eyebrow"><span class="eyebrow-line"></span> THE STREET IS YOURS <span class="eyebrow-line"></span></div>
+        <h1>ONE<br /><em>MORE.</em></h1>
+        <p class="intro-copy">No keeper. No excuses.<br />Just you, the ball, and the back of the net.</p>
+        <div class="feature-row"><span>01 <b>DRIBBLE</b></span><span>02 <b>TRICK</b></span><span>03 <b>FINISH</b></span></div>
+        <button class="primary-btn" id="playBtn">PLAY MATCH <span>↗</span></button>
+        <div class="modal-foot">FIRST TO 5 <i>•</i> 90 SECONDS <i>•</i> 1 VS 1</div>
+      </div>
+    </section>
+    <section class="modal hidden" id="endModal">
+      <div class="modal-card end-card">
+        <div class="eyebrow"><span class="eyebrow-line"></span> FULL TIME <span class="eyebrow-line"></span></div>
+        <div class="result-kicker" id="resultKicker">WHAT A MATCH</div>
+        <h2 id="resultTitle">VICTORY</h2>
+        <div class="final-score"><span id="finalBot">0</span><i>:</i><span id="finalPlayer">0</span></div>
+        <p id="resultCopy">The pitch remembers.</p>
+        <button class="primary-btn" id="rematchBtn">REMATCH <span>↻</span></button>
+      </div>
+    </section>
+    <button class="pause-btn" id="pauseBtn" aria-label="Pause match">Ⅱ</button>
+    <section class="modal hidden" id="pauseModal">
+      <div class="modal-card pause-card"><div class="eyebrow">TAKE A BREATHER</div><h2>PAUSED</h2><button class="primary-btn" id="resumeBtn">BACK TO IT <span>↗</span></button><button class="text-btn" id="quitBtn">END MATCH</button></div>
+    </section>
+  </main>
+  <script src="game.js"></script>
+</body>
+</html>
